@@ -26,3 +26,12 @@ export const subtitleStyles: SxProps<Theme> = {
 export const buttonStyles: SxProps<Theme> = {
   mt: 2, // margin top with the spacing value of 2
 };
+export const detailsBox: SxProps<Theme> = { 
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    zIndex: 1100,
+    m: 1 
+};
+
+
