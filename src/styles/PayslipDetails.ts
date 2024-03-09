@@ -13,6 +13,7 @@ export const paperStyles: SxProps<Theme> = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  borderRadius: '16px'
 };
 
 export const titleStyles: SxProps<Theme> = {
@@ -28,7 +29,7 @@ export const buttonStyles: SxProps<Theme> = {
 };
 export const detailsBox: SxProps<Theme> = { 
     position: 'fixed',
-    top: 0,
+    top: 20,
     left: 0,
     zIndex: 1100,
     m: 1 

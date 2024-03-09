@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Grid, Paper, Typography, Button, CircularProgress, Box } from '@mui/material';
+import { Grid, Paper, Typography, Button, Box, Skeleton } from '@mui/material';
 import { mockPayslips } from '../../data/MockPayslips';
-import { listContainerStyles, paperStyles, titleStyles, buttonStyles, loadingContainerStyles } from '../../styles/PayslipList';
+import { boxContainer, listContainerStyles, paperStyles, titleStyles, buttonStyles, titleHeader } from '../../styles/PayslipList';
 import { Payslip } from '../../models/Payslip';
 
 const PayslipList = () => {
@@ -19,19 +19,32 @@ const PayslipList = () => {
     
       if (loading) {
         return (
-          <Box sx={loadingContainerStyles}>
-            <CircularProgress />
+            <Box sx={boxContainer}>
+            <Typography variant="h4" sx={titleHeader}>Your Payslips</Typography>
+            <Grid container spacing={2} sx={listContainerStyles}>
+              {[...Array(4)].map((_, index) => (
+                <Grid item xs={12} sm={6} md={4} key={index}>
+                  <Paper elevation={3} sx={{ ...paperStyles, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <Skeleton variant="text" sx={{ ...titleStyles }} />
+                    <Skeleton variant="text" />
+                    <Skeleton variant="rectangular" height={36} />
+                  </Paper>
+                </Grid>
+              ))}
+            </Grid>
           </Box>
         );
       }
     
       return (
+        <Box sx={boxContainer}>
+             <Typography variant="h4" sx={titleHeader}>Your Payslips</Typography>
         <Grid container spacing={2} sx={listContainerStyles}>
           {payslips.map((payslip) => (
             <Grid item xs={12} sm={6} md={4} key={payslip.id}>
               <Paper elevation={3} sx={{ ...paperStyles }}>
                 <Typography variant="h6" sx={{ ...titleStyles }}>Payslip Period</Typography>
-                <Typography>{`${payslip.fromDate} to ${payslip.toDate}`}</Typography>
+                <Typography sx={{ ...titleStyles }}>{`${payslip.fromDate} to ${payslip.toDate}`}</Typography>
                 <Button
                   variant="contained"
                   color="primary"
@@ -45,6 +58,7 @@ const PayslipList = () => {
             </Grid>
           ))}
         </Grid>
+        </Box>
       );
     };
     

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { mockPayslips } from '../../data/MockPayslips';
-import { Typography, Button, Paper, CircularProgress, Box, IconButton } from '@mui/material';
+import { Typography, Button, Paper, CircularProgress, Box, IconButton, Skeleton } from '@mui/material';
 import { Payslip } from '../../models/Payslip';
 import {
   loadingContainerStyles,
@@ -34,7 +34,15 @@ const PayslipDetails = () => {
   }, [id]);
 
   if (loading) {
-    return <Box sx={loadingContainerStyles}><CircularProgress /></Box>;
+    return (
+        <Paper sx={paperStyles}>
+        <Skeleton variant="rectangular" width="100%" height={118} />
+        <Skeleton variant="text" sx={{ fontSize: '2rem' }} />
+        <Skeleton variant="text" />
+        <Skeleton variant="text" />
+        <Skeleton variant="rectangular" width="100%" height={56} />
+      </Paper>
+    )
   }
 
   if (!payslip) {
@@ -58,7 +66,7 @@ const PayslipDetails = () => {
         </IconButton>
       </Box>
       <Box sx={{ marginTop: 8 }}> {/* Adjust marginTop accordingly */}
-        <Paper sx={paperStyles}>
+        <Paper elevation={3} sx={paperStyles}>
           <Typography variant="h4" sx={titleStyles}>Payslip Details</Typography>
           <Typography variant="h6" sx={subtitleStyles}>{`ID: ${payslip?.id}`}</Typography>
           <Typography sx={subtitleStyles}>{`Period: ${payslip?.fromDate} to ${payslip?.toDate}`}</Typography>
