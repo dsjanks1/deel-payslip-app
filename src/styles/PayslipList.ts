@@ -30,6 +30,7 @@ export const listContainerStyles:SxProps<Theme> = {
 
   };
   export const titleHeader: SxProps<Theme> = {
+    // Deel styling
     margin: "-5px",
     fontFamily: "'__BagossCondensedFont_6a34bf', '__BagossCondensedFont_Fallback_6a34bf', Arial, Helvetica, sans-serif",
     fontWeight: 500,

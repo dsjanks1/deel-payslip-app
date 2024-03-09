@@ -10,8 +10,8 @@ const PayslipList = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        // Timeout to simulate skeleton loader awaiting for API request
         setLoading(true);
+        // Timeout to simulate skeleton loader awaiting for API request
         setTimeout(() => {
           setPayslips(mockPayslips);
           setLoading(false);
@@ -19,6 +19,7 @@ const PayslipList = () => {
       }, []);
     
       if (loading) {
+        // Skeleton loader
         return (
             <Box sx={boxContainer}>
             <Typography variant="h6" sx={titleHeader}>Your Payslips</Typography>
