@@ -10,6 +10,7 @@ const PayslipList = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        // Timeout to simulate skeleton loader awaiting for API request
         setLoading(true);
         setTimeout(() => {
           setPayslips(mockPayslips);
@@ -20,9 +21,9 @@ const PayslipList = () => {
       if (loading) {
         return (
             <Box sx={boxContainer}>
-            <Typography variant="h4" sx={titleHeader}>Your Payslips</Typography>
+            <Typography variant="h6" sx={titleHeader}>Your Payslips</Typography>
             <Grid container spacing={2} sx={listContainerStyles}>
-              {[...Array(4)].map((_, index) => (
+              {[...Array(6)].map((_, index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
                   <Paper elevation={3} sx={{ ...paperStyles, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                     <Skeleton variant="text" sx={{ ...titleStyles }} />
@@ -50,7 +51,11 @@ const PayslipList = () => {
                   color="secondary"
                   component={RouterLink}
                   to={`/payslip/${payslip.id}`}
-                  sx={{ ...buttonStyles }}
+                  sx={{ ...buttonStyles, 
+                    transition: 'transform 0.3s ease-in-out, background-color 0.3s ease',
+                    '&:hover': {
+                      transform: 'scale(1.05)',
+                    }}}
                 >
                   View Details
                 </Button>

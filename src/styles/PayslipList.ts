@@ -50,9 +50,8 @@ export const listContainerStyles:SxProps<Theme> = {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "left center, center, right",
     backgroundSize: "16px 64px, calc(100% - 32px) 64px, 16px 64px",
-    paddingLeft: "20px",
-    paddingRight: "20px",
-
+    ml: '40px',
+    mr: '40px'
   };
   
   export const buttonStyles:SxProps<Theme> = {

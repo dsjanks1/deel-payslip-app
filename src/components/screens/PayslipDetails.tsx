@@ -25,6 +25,7 @@ const PayslipDetails = () => {
     navigate(-1); // Go back to PayslipList
   };
   useEffect(() => {
+    // Timeout to simulate skeleton loader awaiting for API request
     const timer = setTimeout(() => {
       const foundPayslip = mockPayslips.find((p) => p.id === id);
       setPayslip(foundPayslip || null);
@@ -70,12 +71,17 @@ const PayslipDetails = () => {
           <ArrowBackIcon />
         </IconButton>
       </Box>
+
       <Box sx={{...detailsBox }}> 
         <Paper elevation={3} sx={paperStyles}>
           <Typography variant="h4" sx={titleStyles}>Payslip Details</Typography>
           <Typography variant="h6" sx={subtitleStyles}>{`ID: ${payslip?.id}`}</Typography>
           <Typography sx={subtitleStyles}>{`Period: ${payslip?.fromDate} to ${payslip?.toDate}`}</Typography>
-          <Button color="secondary" variant="contained" onClick={handleDownload} sx={buttonStyles}>Download Payslip</Button>
+          <Button color="secondary" variant="contained" onClick={handleDownload} sx={{ ...buttonStyles, 
+                    transition: 'transform 0.3s ease-in-out, background-color 0.3s ease',
+                    '&:hover': {
+                      transform: 'scale(1.05)',
+                    }}}>Download Payslip</Button>
         </Paper>
       </Box>
     </Box>
