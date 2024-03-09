@@ -20,3 +20,5 @@ You will also see any lint errors in the console.
 ## TODOS
 
 1. On the payslipList page, I should have made the text: Your Payslips fixed to the top of the page and made the payslips scrollable not the entire page
+2. Native download of PDF not working. Would spend more time debugging
+3. 

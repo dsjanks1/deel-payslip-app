@@ -65,4 +65,3 @@ export const listContainerStyles:SxProps<Theme> = {
     alignItems: 'center',
     height: '100vh',
   };
-  

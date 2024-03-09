@@ -1,4 +1,5 @@
 import { Payslip } from "../models/Payslip";
+// baseUrl will only work when running on your local
 const baseUrl = "http://localhost:3000/"
 export const mockPayslips: Payslip[] = [
   {

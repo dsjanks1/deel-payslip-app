@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { mockPayslips } from '../../data/MockPayslips';
-import { Typography, Button, Paper, CircularProgress, Box, IconButton, Skeleton } from '@mui/material';
+import { Typography, Button, Paper, Box, IconButton, Skeleton } from '@mui/material';
 import { Payslip } from '../../models/Payslip';
 import {
   paperStyles,
