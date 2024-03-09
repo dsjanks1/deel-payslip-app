@@ -14,6 +14,7 @@ import {
 } from '../../styles/PayslipDetails';
 import downloadPayslip from '../../utils/DownloadPayslip';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useSwipeable } from 'react-swipeable';
 
 const PayslipDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -22,8 +23,15 @@ const PayslipDetails = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate(-1); // Go back to PayslipList
+    navigate(-1); // Go back to PayslipList page
   };
+
+  const swipeHandlers = useSwipeable({
+    onSwipedRight: () => navigate(-1), // Navigate back to PayslipList page on right swipe
+    trackMouse: true, // Track mouse movements as well
+  });
+
+
   useEffect(() => {
     // Timeout to simulate skeleton loader awaiting for API request
     const timer = setTimeout(() => {
@@ -62,7 +70,7 @@ const PayslipDetails = () => {
 
   return (
     <>
-    <Box sx={{display: 'flex',
+    <Box {...swipeHandlers} sx={{display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center'}}>

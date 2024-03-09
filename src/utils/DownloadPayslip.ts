@@ -25,7 +25,6 @@ async function downloadPayslip(url: string, fileName: string) {
                recursive: true, // Automatically create the 'payslips' directory if it doesn't exist
              });
      
-             // Optional: Log the path or do something with the saved file.
              console.log('File saved successfully:', savedFile.uri);
            };
            reader.readAsDataURL(blob);
@@ -36,7 +35,6 @@ async function downloadPayslip(url: string, fileName: string) {
     // For web
     const a = document.createElement('a');
     a.href = url;
-    console.log('---------dddd', a.href)
     a.download = fileName;
     document.body.appendChild(a);
     a.click();
