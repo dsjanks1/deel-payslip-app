@@ -4,12 +4,13 @@ import { mockPayslips } from '../../data/MockPayslips';
 import { Typography, Button, Paper, CircularProgress, Box, IconButton, Skeleton } from '@mui/material';
 import { Payslip } from '../../models/Payslip';
 import {
-  loadingContainerStyles,
   paperStyles,
   titleStyles,
   subtitleStyles,
   buttonStyles,
   detailsBox,
+  backBox
+  
 } from '../../styles/PayslipDetails';
 import downloadPayslip from '../../utils/DownloadPayslip';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -53,26 +54,31 @@ const PayslipDetails = () => {
     console.log('Downloading...', payslip.file);
     if (payslip && payslip.file) {
         const url = payslip.file; // URL to the payslip file
-        const fileName = `Payslip-${payslip.id}.pdf`; // Example filename
+        const fileName = `Payslip-${payslip.id}.pdf`; 
         downloadPayslip(url, fileName);
       }
   };
 
   return (
     <>
-      <Box sx={detailsBox}>
-        <IconButton onClick={handleBack}>
+    <Box sx={{display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'}}>
+      <Box sx={backBox}>
+        <IconButton size="large" color="secondary"onClick={handleBack}>
           <ArrowBackIcon />
         </IconButton>
       </Box>
-      <Box sx={{ marginTop: 8 }}> {/* Adjust marginTop accordingly */}
+      <Box sx={{...detailsBox }}> 
         <Paper elevation={3} sx={paperStyles}>
           <Typography variant="h4" sx={titleStyles}>Payslip Details</Typography>
           <Typography variant="h6" sx={subtitleStyles}>{`ID: ${payslip?.id}`}</Typography>
           <Typography sx={subtitleStyles}>{`Period: ${payslip?.fromDate} to ${payslip?.toDate}`}</Typography>
-          <Button variant="contained" onClick={handleDownload} sx={buttonStyles}>Download Payslip</Button>
+          <Button color="secondary" variant="contained" onClick={handleDownload} sx={buttonStyles}>Download Payslip</Button>
         </Paper>
       </Box>
+    </Box>
     </>
   );
 };

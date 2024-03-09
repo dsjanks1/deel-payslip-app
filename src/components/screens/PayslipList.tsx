@@ -47,7 +47,7 @@ const PayslipList = () => {
                 <Typography sx={{ ...titleStyles }}>{`${payslip.fromDate} to ${payslip.toDate}`}</Typography>
                 <Button
                   variant="contained"
-                  color="primary"
+                  color="secondary"
                   component={RouterLink}
                   to={`/payslip/${payslip.id}`}
                   sx={{ ...buttonStyles }}

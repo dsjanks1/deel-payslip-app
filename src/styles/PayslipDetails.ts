@@ -5,6 +5,8 @@ export const loadingContainerStyles: SxProps<Theme> = {
   justifyContent: 'center',
   alignItems: 'center',
   height: '100vh',
+  backgroundColor: '#007aff'
+
 };
 
 export const paperStyles: SxProps<Theme> = {
@@ -13,26 +15,34 @@ export const paperStyles: SxProps<Theme> = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  borderRadius: '16px'
+  borderRadius: '16px',
+  backgroundColor: '#007aff'
+
 };
 
 export const titleStyles: SxProps<Theme> = {
-  marginBottom: '10px',
+  mb: '10px',
+  color: '#fff'
 };
 
 export const subtitleStyles: SxProps<Theme> = {
   marginBottom: '20px',
+  color: '#fff'
 };
 
 export const buttonStyles: SxProps<Theme> = {
-  mt: 2, // margin top with the spacing value of 2
+  mt: 2,
 };
-export const detailsBox: SxProps<Theme> = { 
+export const detailsBox:SxProps<Theme> = {
+    backgroundColor: '#B1D8FC',
+    mt: 10,
+  };
+export const backBox: SxProps<Theme> = { 
     position: 'fixed',
     top: 20,
     left: 0,
     zIndex: 1100,
-    m: 1 
+    m: 1,
 };
 
 
